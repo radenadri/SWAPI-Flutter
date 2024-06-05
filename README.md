@@ -1,4 +1,4 @@
-# Flutter + Riverpod Boilerplate
+# WIP
 
 A flutter app that showing how to use Riverpod state management within Flutter App.
 
