@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:riverpod_counter_app/config/constants.dart';
+import 'package:swapi_app/config/constants.dart';
 import 'package:http/http.dart' as http;
-import 'package:riverpod_counter_app/models/number_trivia_model.dart';
+import 'package:swapi_app/models/number_trivia_model.dart';
 
 part 'number_trivia_provider.g.dart';
 

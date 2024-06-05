@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_counter_app/config/di.dart';
-import 'package:riverpod_counter_app/riverpod/counter_provider.dart';
+import 'package:swapi_app/config/constants.dart';
+import 'package:swapi_app/config/di.dart';
+import 'package:swapi_app/riverpod/counter_provider.dart';
 
 class CounterView extends ConsumerWidget {
   const CounterView({super.key});
@@ -18,7 +19,12 @@ class CounterView extends ConsumerWidget {
 
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
-        middle: Text('Counter App'),
+        middle: Text(
+          'Counter App',
+          style: TextStyle(
+            color: COLOR_PRIMARY,
+          ),
+        ),
       ),
       child: Center(
         child: Column(

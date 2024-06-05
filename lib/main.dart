@@ -2,7 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_counter_app/config/routes.dart';
+import 'package:swapi_app/config/routes.dart';
+import 'package:swapi_app/config/constants.dart';
+
+CupertinoThemeData starWarsTheme() {
+  return CupertinoThemeData(
+    brightness: Brightness.light,
+    primaryColor: COLOR_PRIMARY,
+    textTheme: const CupertinoTextThemeData(
+      textStyle: TextStyle(color: COLOR_PRIMARY),
+    ),
+    scaffoldBackgroundColor: Colors.grey[900],
+    barBackgroundColor: Colors.black,
+  );
+}
 
 void main() {
   if (defaultTargetPlatform == TargetPlatform.iOS) {
@@ -10,8 +23,8 @@ void main() {
       ProviderScope(
         child: CupertinoApp.router(
           routerConfig: iosRouter,
-          title: 'Flutter + Riverpod Boilerplate',
-          theme: const CupertinoThemeData(brightness: Brightness.light),
+          title: 'Star Wars',
+          theme: starWarsTheme(),
         ),
       ),
     );
@@ -20,7 +33,7 @@ void main() {
       ProviderScope(
         child: MaterialApp.router(
           routerConfig: androidRouter,
-          title: 'Flutter + Riverpod Boilerplate',
+          title: 'Star Wars',
           theme: ThemeData(
             colorSchemeSeed: Colors.green,
             useMaterial3: true,
