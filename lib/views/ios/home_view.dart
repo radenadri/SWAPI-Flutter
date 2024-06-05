@@ -1,4 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:swapi_app/views/ios/explore_view.dart';
+import 'package:swapi_app/views/ios/film_view.dart';
+import 'package:swapi_app/views/ios/people_view.dart';
+import 'package:swapi_app/views/ios/planet_view.dart';
+import 'package:swapi_app/views/ios/setting_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -40,15 +45,15 @@ class _HomeViewState extends State<HomeView> {
           builder: (context) {
             switch (index) {
               case 1:
-                return const Center(child: Text('Peoples page'));
+                return const PeopleView();
               case 2:
-                return const Center(child: Text('Films page'));
+                return const FilmView();
               case 3:
-                return const Center(child: Text('Plantes page'));
+                return const PlanetView();
               case 4:
-                return const Center(child: Text('Settings page'));
+                return const SettingView();
               default:
-                return const Center(child: Text('Explore page'));
+                return const ExploreView();
             }
           },
         );
