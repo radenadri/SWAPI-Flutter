@@ -428,8 +428,7 @@ class CupertinoListSection extends StatelessWidget {
 
       childrenWithDividers.add(children!.last);
       if (type == CupertinoListSectionType.base) {
-        // childrenWithDividers.add(longDivider);
-        childrenWithDividers.add(shortDivider);
+        childrenWithDividers.add(longDivider);
       }
 
       final BorderRadius childrenGroupBorderRadius = switch (type) {
