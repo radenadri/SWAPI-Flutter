@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 
 const API_URL = 'http://numbersapi.com';
+const SWAPI_URL = 'https://swapi.dev/api';
 
 const COLOR_PRIMARY = CupertinoColors.systemYellow;
 const COLOR_SECONDARY = CupertinoColors.darkBackgroundGray;

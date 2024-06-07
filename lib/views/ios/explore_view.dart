@@ -73,23 +73,25 @@ class ExploreView extends StatelessWidget {
                     itemListTile(
                       leading: AspectRatio(
                         aspectRatio: 1.0,
-                        child: Image.network(
-                          'https://via.placeholder.com/100',
-                          fit: BoxFit.fill,
-                          frameBuilder:
-                              (context, child, frame, wasSynchronouslyLoaded) {
-                            return frame != null
-                                ? child
-                                : const CupertinoActivityIndicator(
-                                    color: COLOR_PRIMARY,
-                                  );
-                          },
-                          errorBuilder: (context, object, stackTrace) {
-                            return const Icon(
-                              CupertinoIcons.person,
-                              size: 30.0,
-                            );
-                          },
+                        child: ClipOval(
+                          child: Image.asset(
+                            'assets/images/avatar.png',
+                            fit: BoxFit.fill,
+                            frameBuilder: (context, child, frame,
+                                wasSynchronouslyLoaded) {
+                              return frame != null
+                                  ? child
+                                  : const CupertinoActivityIndicator(
+                                      color: COLOR_PRIMARY,
+                                    );
+                            },
+                            errorBuilder: (context, object, stackTrace) {
+                              return const Icon(
+                                CupertinoIcons.person,
+                                size: 30.0,
+                              );
+                            },
+                          ),
                         ),
                       ),
                       title: const Text('Item 1'),
@@ -139,25 +141,27 @@ class ExploreView extends StatelessWidget {
                   ),
                   items: [
                     itemListTile(
-                      leading: AspectRatio(
-                        aspectRatio: 1.0,
-                        child: Image.network(
-                          'https://via.placeholder.com/100',
-                          fit: BoxFit.fill,
-                          frameBuilder:
-                              (context, child, frame, wasSynchronouslyLoaded) {
-                            return frame != null
-                                ? child
-                                : const CupertinoActivityIndicator(
-                                    color: COLOR_PRIMARY,
-                                  );
-                          },
-                          errorBuilder: (context, object, stackTrace) {
-                            return const Icon(
-                              CupertinoIcons.person,
-                              size: 30.0,
-                            );
-                          },
+                      leading: ClipOval(
+                        child: AspectRatio(
+                          aspectRatio: 1.0,
+                          child: Image.asset(
+                            'assets/images/avatar.png',
+                            fit: BoxFit.fill,
+                            frameBuilder: (context, child, frame,
+                                wasSynchronouslyLoaded) {
+                              return frame != null
+                                  ? child
+                                  : const CupertinoActivityIndicator(
+                                      color: COLOR_PRIMARY,
+                                    );
+                            },
+                            errorBuilder: (context, object, stackTrace) {
+                              return const Icon(
+                                CupertinoIcons.person,
+                                size: 30.0,
+                              );
+                            },
+                          ),
                         ),
                       ),
                       title: const Text('Item 1'),
@@ -207,25 +211,27 @@ class ExploreView extends StatelessWidget {
                   ),
                   items: [
                     itemListTile(
-                      leading: AspectRatio(
-                        aspectRatio: 1.0,
-                        child: Image.network(
-                          'https://via.placeholder.com/100',
-                          fit: BoxFit.fill,
-                          frameBuilder:
-                              (context, child, frame, wasSynchronouslyLoaded) {
-                            return frame != null
-                                ? child
-                                : const CupertinoActivityIndicator(
-                                    color: COLOR_PRIMARY,
-                                  );
-                          },
-                          errorBuilder: (context, object, stackTrace) {
-                            return const Icon(
-                              CupertinoIcons.person,
-                              size: 30.0,
-                            );
-                          },
+                      leading: ClipOval(
+                        child: AspectRatio(
+                          aspectRatio: 1.0,
+                          child: Image.asset(
+                            'assets/images/avatar.png',
+                            fit: BoxFit.fill,
+                            frameBuilder: (context, child, frame,
+                                wasSynchronouslyLoaded) {
+                              return frame != null
+                                  ? child
+                                  : const CupertinoActivityIndicator(
+                                      color: COLOR_PRIMARY,
+                                    );
+                            },
+                            errorBuilder: (context, object, stackTrace) {
+                              return const Icon(
+                                CupertinoIcons.person,
+                                size: 30.0,
+                              );
+                            },
+                          ),
                         ),
                       ),
                       title: const Text('Item 1'),
