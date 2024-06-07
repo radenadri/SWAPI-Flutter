@@ -5,6 +5,8 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:swapi_app/config/constants.dart';
 
 // These constants were eyeballed from iOS 14.4 Settings app for base, Notes for
 // notched without leading, and Reminders app for notched with leading.
@@ -338,8 +340,10 @@ class _CupertinoListTileState extends State<CupertinoListTile> {
     };
 
     final Widget child = Container(
-      constraints:
-          BoxConstraints(minWidth: double.infinity, minHeight: minHeight),
+      constraints: BoxConstraints(
+        minWidth: double.infinity,
+        minHeight: minHeight,
+      ),
       color: backgroundColor,
       child: Padding(
         padding: padding,
@@ -385,6 +389,21 @@ class _CupertinoListTileState extends State<CupertinoListTile> {
       return child;
     }
 
+    Widget renderedChild = switch (widget._type) {
+      _CupertinoListTileType.base => child,
+      _CupertinoListTileType.notched => Card.outlined(
+          margin: EdgeInsets.zero,
+          elevation: 0.0,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(14.0)),
+            side: BorderSide(
+              color: COLOR_PRIMARY,
+            ),
+          ),
+          child: child,
+        ),
+    };
+
     return GestureDetector(
       onTapDown: (_) => setState(() {
         _tapped = true;
@@ -401,7 +420,7 @@ class _CupertinoListTileState extends State<CupertinoListTile> {
         }
       },
       behavior: HitTestBehavior.opaque,
-      child: child,
+      child: renderedChild,
     );
   }
 }

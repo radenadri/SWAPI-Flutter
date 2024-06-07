@@ -8,7 +8,7 @@ Widget itemListSection({
 }) {
   return extended.CupertinoListSection(
     backgroundColor: COLOR_SECONDARY,
-    separatorColor: COLOR_PRIMARY,
+    separatorColor: COLOR_SECONDARY,
     decoration: const BoxDecoration(
       color: COLOR_SECONDARY,
     ),
