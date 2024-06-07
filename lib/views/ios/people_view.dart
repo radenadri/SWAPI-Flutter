@@ -52,6 +52,7 @@ class _PeopleViewState extends ConsumerState<PeopleView> {
 
     return CupertinoPageScaffold(
       child: NestedScrollView(
+        controller: _controller,
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
             const CupertinoSliverNavigationBar(
@@ -77,7 +78,6 @@ class _PeopleViewState extends ConsumerState<PeopleView> {
     return Container(
       margin: const EdgeInsets.only(top: 30.0),
       child: CustomScrollView(
-        controller: _controller,
         physics: const BouncingScrollPhysics(
           parent: AlwaysScrollableScrollPhysics(),
         ),
