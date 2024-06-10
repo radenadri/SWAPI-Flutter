@@ -33,7 +33,11 @@ class _PeopleViewState extends ConsumerState<PeopleView> {
 
           logger.d(next);
 
-          if (next != null) {
+          setState(() {
+            isLoadMore = true;
+          });
+
+          if (next != null && isLoadMore) {
             ref
                 .read(peopleProvider.notifier)
                 .getPeople(nextUrl: next)
@@ -43,10 +47,6 @@ class _PeopleViewState extends ConsumerState<PeopleView> {
               });
             });
           }
-
-          setState(() {
-            isLoadMore = true;
-          });
 
           Future.delayed(const Duration(seconds: 2), () {
             setState(() {
