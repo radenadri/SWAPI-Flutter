@@ -22,7 +22,7 @@ class _PeopleViewState extends ConsumerState<PeopleView> {
     super.initState();
 
     _controller = ScrollController();
-    _controller.addListener(() {
+    _controller.addListener(() async {
       if (_controller.position.atEdge) {
         bool isTop = _controller.position.pixels == 0;
         if (!isTop) {
@@ -38,14 +38,7 @@ class _PeopleViewState extends ConsumerState<PeopleView> {
           });
 
           if (next != null && isLoadMore) {
-            ref
-                .read(peopleProvider.notifier)
-                .getPeople(nextUrl: next)
-                .then((value) {
-              setState(() {
-                isLoadMore = false;
-              });
-            });
+            await ref.read(peopleProvider.notifier).getPeople(nextUrl: next);
           }
 
           Future.delayed(const Duration(seconds: 2), () {
