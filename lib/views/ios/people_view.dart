@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:swapi_app/components/item_list_tile.dart';
 import 'package:swapi_app/config/constants.dart';
-import 'package:swapi_app/config/di.dart';
 import 'package:swapi_app/models/people_model.dart';
 import 'package:swapi_app/riverpod/people_provider.dart';
 
@@ -27,11 +26,8 @@ class _PeopleViewState extends ConsumerState<PeopleView> {
         bool isTop = _controller.position.pixels == 0;
         if (!isTop) {
           final people = ref.watch(peopleProvider);
-          final logger = ref.watch(loggerProvider);
 
           String? next = people.asData?.value.next;
-
-          logger.d(next);
 
           setState(() {
             isLoadMore = true;
@@ -41,10 +37,8 @@ class _PeopleViewState extends ConsumerState<PeopleView> {
             await ref.read(peopleProvider.notifier).getPeople(nextUrl: next);
           }
 
-          Future.delayed(const Duration(seconds: 2), () {
-            setState(() {
-              isLoadMore = false;
-            });
+          setState(() {
+            isLoadMore = false;
           });
         }
       }
