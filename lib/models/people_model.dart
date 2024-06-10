@@ -4,16 +4,16 @@ part 'people_model.freezed.dart';
 part 'people_model.g.dart';
 
 @freezed
-class People with _$People {
-  const factory People({
+class Person with _$Person {
+  const factory Person({
     required String name,
     required String height,
     required String mass,
     required String gender,
     String? homeworld,
-  }) = _People;
+  }) = _Person;
 
-  factory People.fromJson(Map<String, dynamic> json) => _$PeopleFromJson(json);
+  factory Person.fromJson(Map<String, dynamic> json) => _$PersonFromJson(json);
 }
 
 @freezed
@@ -22,7 +22,7 @@ class PeopleModel with _$PeopleModel {
     required int count,
     String? next,
     String? previous,
-    required List<People> results,
+    required List<Person> results,
   }) = _PeopleModel;
 
   factory PeopleModel.fromJson(Map<String, dynamic> json) =>

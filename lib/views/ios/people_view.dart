@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:logger/logger.dart';
 import 'package:swapi_app/components/item_list_tile.dart';
 import 'package:swapi_app/config/constants.dart';
+import 'package:swapi_app/config/di.dart';
 import 'package:swapi_app/models/people_model.dart';
 import 'package:swapi_app/riverpod/people_provider.dart';
 
@@ -23,19 +23,37 @@ class _PeopleViewState extends ConsumerState<PeopleView> {
 
     _controller = ScrollController();
     _controller.addListener(() {
-      if (_controller.offset >= _controller.position.maxScrollExtent &&
-          !_controller.position.outOfRange) {
-        Logger().d('reach the bottom');
+      if (_controller.position.atEdge) {
+        bool isTop = _controller.position.pixels == 0;
+        if (!isTop) {
+          final people = ref.watch(peopleProvider);
+          final logger = ref.watch(loggerProvider);
 
-        setState(() {
-          isLoadMore = true;
-        });
+          String? next = people.asData?.value.next;
 
-        Future.delayed(const Duration(seconds: 2), () {
+          logger.d(next);
+
+          if (next != null) {
+            ref
+                .read(peopleProvider.notifier)
+                .getPeople(nextUrl: next)
+                .then((value) {
+              setState(() {
+                isLoadMore = false;
+              });
+            });
+          }
+
           setState(() {
-            isLoadMore = false;
+            isLoadMore = true;
           });
-        });
+
+          Future.delayed(const Duration(seconds: 2), () {
+            setState(() {
+              isLoadMore = false;
+            });
+          });
+        }
       }
     });
   }
@@ -52,7 +70,6 @@ class _PeopleViewState extends ConsumerState<PeopleView> {
 
     return CupertinoPageScaffold(
       child: NestedScrollView(
-        controller: _controller,
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
             const CupertinoSliverNavigationBar(
@@ -66,7 +83,7 @@ class _PeopleViewState extends ConsumerState<PeopleView> {
           ];
         },
         body: people.when(
-          data: (people) => peopleLists(people, ref),
+          data: (people) => peopleLists(people, ref, _controller),
           error: (error, stackTrace) => errorWidget(error),
           loading: () => loadingWidget(),
         ),
@@ -74,10 +91,12 @@ class _PeopleViewState extends ConsumerState<PeopleView> {
     );
   }
 
-  Widget peopleLists(PeopleModel people, WidgetRef ref) {
+  Widget peopleLists(
+      PeopleModel people, WidgetRef ref, ScrollController controller) {
     return Container(
       margin: const EdgeInsets.only(top: 30.0),
       child: CustomScrollView(
+        controller: controller,
         physics: const BouncingScrollPhysics(
           parent: AlwaysScrollableScrollPhysics(),
         ),

@@ -6,7 +6,7 @@ part of 'people_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PeopleImpl _$$PeopleImplFromJson(Map<String, dynamic> json) => _$PeopleImpl(
+_$PersonImpl _$$PersonImplFromJson(Map<String, dynamic> json) => _$PersonImpl(
       name: json['name'] as String,
       height: json['height'] as String,
       mass: json['mass'] as String,
@@ -14,7 +14,7 @@ _$PeopleImpl _$$PeopleImplFromJson(Map<String, dynamic> json) => _$PeopleImpl(
       homeworld: json['homeworld'] as String?,
     );
 
-Map<String, dynamic> _$$PeopleImplToJson(_$PeopleImpl instance) =>
+Map<String, dynamic> _$$PersonImplToJson(_$PersonImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'height': instance.height,
@@ -29,7 +29,7 @@ _$PeopleModelImpl _$$PeopleModelImplFromJson(Map<String, dynamic> json) =>
       next: json['next'] as String?,
       previous: json['previous'] as String?,
       results: (json['results'] as List<dynamic>)
-          .map((e) => People.fromJson(e as Map<String, dynamic>))
+          .map((e) => Person.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

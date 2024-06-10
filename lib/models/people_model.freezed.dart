@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-People _$PeopleFromJson(Map<String, dynamic> json) {
-  return _People.fromJson(json);
+Person _$PersonFromJson(Map<String, dynamic> json) {
+  return _Person.fromJson(json);
 }
 
 /// @nodoc
-mixin _$People {
+mixin _$Person {
   String get name => throw _privateConstructorUsedError;
   String get height => throw _privateConstructorUsedError;
   String get mass => throw _privateConstructorUsedError;
@@ -28,13 +28,13 @@ mixin _$People {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PeopleCopyWith<People> get copyWith => throw _privateConstructorUsedError;
+  $PersonCopyWith<Person> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PeopleCopyWith<$Res> {
-  factory $PeopleCopyWith(People value, $Res Function(People) then) =
-      _$PeopleCopyWithImpl<$Res, People>;
+abstract class $PersonCopyWith<$Res> {
+  factory $PersonCopyWith(Person value, $Res Function(Person) then) =
+      _$PersonCopyWithImpl<$Res, Person>;
   @useResult
   $Res call(
       {String name,
@@ -45,9 +45,9 @@ abstract class $PeopleCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PeopleCopyWithImpl<$Res, $Val extends People>
-    implements $PeopleCopyWith<$Res> {
-  _$PeopleCopyWithImpl(this._value, this._then);
+class _$PersonCopyWithImpl<$Res, $Val extends Person>
+    implements $PersonCopyWith<$Res> {
+  _$PersonCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -89,10 +89,10 @@ class _$PeopleCopyWithImpl<$Res, $Val extends People>
 }
 
 /// @nodoc
-abstract class _$$PeopleImplCopyWith<$Res> implements $PeopleCopyWith<$Res> {
-  factory _$$PeopleImplCopyWith(
-          _$PeopleImpl value, $Res Function(_$PeopleImpl) then) =
-      __$$PeopleImplCopyWithImpl<$Res>;
+abstract class _$$PersonImplCopyWith<$Res> implements $PersonCopyWith<$Res> {
+  factory _$$PersonImplCopyWith(
+          _$PersonImpl value, $Res Function(_$PersonImpl) then) =
+      __$$PersonImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -104,11 +104,11 @@ abstract class _$$PeopleImplCopyWith<$Res> implements $PeopleCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PeopleImplCopyWithImpl<$Res>
-    extends _$PeopleCopyWithImpl<$Res, _$PeopleImpl>
-    implements _$$PeopleImplCopyWith<$Res> {
-  __$$PeopleImplCopyWithImpl(
-      _$PeopleImpl _value, $Res Function(_$PeopleImpl) _then)
+class __$$PersonImplCopyWithImpl<$Res>
+    extends _$PersonCopyWithImpl<$Res, _$PersonImpl>
+    implements _$$PersonImplCopyWith<$Res> {
+  __$$PersonImplCopyWithImpl(
+      _$PersonImpl _value, $Res Function(_$PersonImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,7 +120,7 @@ class __$$PeopleImplCopyWithImpl<$Res>
     Object? gender = null,
     Object? homeworld = freezed,
   }) {
-    return _then(_$PeopleImpl(
+    return _then(_$PersonImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -147,16 +147,16 @@ class __$$PeopleImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PeopleImpl implements _People {
-  const _$PeopleImpl(
+class _$PersonImpl implements _Person {
+  const _$PersonImpl(
       {required this.name,
       required this.height,
       required this.mass,
       required this.gender,
       this.homeworld});
 
-  factory _$PeopleImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PeopleImplFromJson(json);
+  factory _$PersonImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PersonImplFromJson(json);
 
   @override
   final String name;
@@ -171,14 +171,14 @@ class _$PeopleImpl implements _People {
 
   @override
   String toString() {
-    return 'People(name: $name, height: $height, mass: $mass, gender: $gender, homeworld: $homeworld)';
+    return 'Person(name: $name, height: $height, mass: $mass, gender: $gender, homeworld: $homeworld)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PeopleImpl &&
+            other is _$PersonImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.mass, mass) || other.mass == mass) &&
@@ -195,26 +195,26 @@ class _$PeopleImpl implements _People {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PeopleImplCopyWith<_$PeopleImpl> get copyWith =>
-      __$$PeopleImplCopyWithImpl<_$PeopleImpl>(this, _$identity);
+  _$$PersonImplCopyWith<_$PersonImpl> get copyWith =>
+      __$$PersonImplCopyWithImpl<_$PersonImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PeopleImplToJson(
+    return _$$PersonImplToJson(
       this,
     );
   }
 }
 
-abstract class _People implements People {
-  const factory _People(
+abstract class _Person implements Person {
+  const factory _Person(
       {required final String name,
       required final String height,
       required final String mass,
       required final String gender,
-      final String? homeworld}) = _$PeopleImpl;
+      final String? homeworld}) = _$PersonImpl;
 
-  factory _People.fromJson(Map<String, dynamic> json) = _$PeopleImpl.fromJson;
+  factory _Person.fromJson(Map<String, dynamic> json) = _$PersonImpl.fromJson;
 
   @override
   String get name;
@@ -228,7 +228,7 @@ abstract class _People implements People {
   String? get homeworld;
   @override
   @JsonKey(ignore: true)
-  _$$PeopleImplCopyWith<_$PeopleImpl> get copyWith =>
+  _$$PersonImplCopyWith<_$PersonImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -241,7 +241,7 @@ mixin _$PeopleModel {
   int get count => throw _privateConstructorUsedError;
   String? get next => throw _privateConstructorUsedError;
   String? get previous => throw _privateConstructorUsedError;
-  List<People> get results => throw _privateConstructorUsedError;
+  List<Person> get results => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -255,7 +255,7 @@ abstract class $PeopleModelCopyWith<$Res> {
           PeopleModel value, $Res Function(PeopleModel) then) =
       _$PeopleModelCopyWithImpl<$Res, PeopleModel>;
   @useResult
-  $Res call({int count, String? next, String? previous, List<People> results});
+  $Res call({int count, String? next, String? previous, List<Person> results});
 }
 
 /// @nodoc
@@ -292,7 +292,7 @@ class _$PeopleModelCopyWithImpl<$Res, $Val extends PeopleModel>
       results: null == results
           ? _value.results
           : results // ignore: cast_nullable_to_non_nullable
-              as List<People>,
+              as List<Person>,
     ) as $Val);
   }
 }
@@ -305,7 +305,7 @@ abstract class _$$PeopleModelImplCopyWith<$Res>
       __$$PeopleModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int count, String? next, String? previous, List<People> results});
+  $Res call({int count, String? next, String? previous, List<Person> results});
 }
 
 /// @nodoc
@@ -340,7 +340,7 @@ class __$$PeopleModelImplCopyWithImpl<$Res>
       results: null == results
           ? _value._results
           : results // ignore: cast_nullable_to_non_nullable
-              as List<People>,
+              as List<Person>,
     ));
   }
 }
@@ -352,7 +352,7 @@ class _$PeopleModelImpl implements _PeopleModel {
       {required this.count,
       this.next,
       this.previous,
-      required final List<People> results})
+      required final List<Person> results})
       : _results = results;
 
   factory _$PeopleModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -364,9 +364,9 @@ class _$PeopleModelImpl implements _PeopleModel {
   final String? next;
   @override
   final String? previous;
-  final List<People> _results;
+  final List<Person> _results;
   @override
-  List<People> get results {
+  List<Person> get results {
     if (_results is EqualUnmodifiableListView) return _results;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_results);
@@ -413,7 +413,7 @@ abstract class _PeopleModel implements PeopleModel {
       {required final int count,
       final String? next,
       final String? previous,
-      required final List<People> results}) = _$PeopleModelImpl;
+      required final List<Person> results}) = _$PeopleModelImpl;
 
   factory _PeopleModel.fromJson(Map<String, dynamic> json) =
       _$PeopleModelImpl.fromJson;
@@ -425,7 +425,7 @@ abstract class _PeopleModel implements PeopleModel {
   @override
   String? get previous;
   @override
-  List<People> get results;
+  List<Person> get results;
   @override
   @JsonKey(ignore: true)
   _$$PeopleModelImplCopyWith<_$PeopleModelImpl> get copyWith =>

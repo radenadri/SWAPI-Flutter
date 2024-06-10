@@ -13,16 +13,14 @@ class People extends _$People {
   FutureOr<PeopleModel> build() async {
     var peopleModel = await getPeople();
 
-    state = AsyncData(peopleModel) as AsyncValue<PeopleModel>;
-
     return peopleModel;
   }
 
-  Future<PeopleModel> getPeople() async {
+  Future<PeopleModel> getPeople({String? nextUrl}) async {
     final dio = ref.watch(dioProvider);
 
     final response = await dio.get(
-      '$SWAPI_URL/people',
+      nextUrl ?? '$SWAPI_URL/people',
       options: Options(
         validateStatus: (status) => true,
         headers: {'Content-Type': 'application/json'},
@@ -64,6 +62,15 @@ class People extends _$People {
     */
 
     final people = PeopleModel.fromJson(response.data);
+    List<Person> oldPeople = state.value?.results ?? [];
+    List<Person> newPeople = people.results;
+
+    state = AsyncData(PeopleModel(
+      count: people.count,
+      next: people.next,
+      previous: people.previous,
+      results: [...oldPeople, ...newPeople],
+    )) as AsyncValue<PeopleModel>;
 
     return people;
   }
