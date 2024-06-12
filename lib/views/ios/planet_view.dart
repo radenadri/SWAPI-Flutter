@@ -112,11 +112,6 @@ class _PlanetViewState extends State<PlanetView> {
                           color: COLOR_GREY_6,
                         ),
                       ),
-                      trailing: CupertinoButton(
-                        padding: EdgeInsets.zero,
-                        onPressed: () {},
-                        child: const Icon(CupertinoIcons.heart, size: 20.0),
-                      ),
                       onTap: () {},
                     ),
                   );

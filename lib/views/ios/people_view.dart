@@ -152,11 +152,6 @@ class _PeopleViewState extends ConsumerState<PeopleView> {
                       );
                     },
                   ),
-                  trailing: CupertinoButton(
-                    padding: EdgeInsets.zero,
-                    onPressed: () {},
-                    child: const Icon(CupertinoIcons.heart, size: 20.0),
-                  ),
                   onTap: () {},
                 ),
               );
