@@ -11,6 +11,7 @@ _$PersonImpl _$$PersonImplFromJson(Map<String, dynamic> json) => _$PersonImpl(
       height: json['height'] as String,
       mass: json['mass'] as String,
       gender: json['gender'] as String,
+      url: json['url'] as String,
       homeworld: json['homeworld'] as String?,
     );
 
@@ -20,6 +21,7 @@ Map<String, dynamic> _$$PersonImplToJson(_$PersonImpl instance) =>
       'height': instance.height,
       'mass': instance.mass,
       'gender': instance.gender,
+      'url': instance.url,
       'homeworld': instance.homeworld,
     };
 

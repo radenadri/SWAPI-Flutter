@@ -10,6 +10,7 @@ class Person with _$Person {
     required String height,
     required String mass,
     required String gender,
+    required String url,
     String? homeworld,
   }) = _Person;
 

@@ -14,7 +14,7 @@ Widget itemListTile({
     title: title,
     subtitle: subtitle,
     trailing: trailing,
-    onTap: () {},
+    onTap: onTap,
     padding: const EdgeInsets.all(16.0),
     leadingSize: 50.0,
     backgroundColor: COLOR_SECONDARY,

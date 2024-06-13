@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:swapi_app/components/item_list_tile.dart';
 import 'package:swapi_app/config/constants.dart';
 import 'package:swapi_app/models/people_model.dart';
@@ -79,7 +80,10 @@ class _PeopleViewState extends ConsumerState<PeopleView> {
   }
 
   Widget peopleLists(
-      PeopleModel people, WidgetRef ref, ScrollController controller) {
+    PeopleModel people,
+    WidgetRef ref,
+    ScrollController controller,
+  ) {
     return Container(
       margin: const EdgeInsets.only(top: 30.0),
       child: CustomScrollView(
@@ -152,7 +156,15 @@ class _PeopleViewState extends ConsumerState<PeopleView> {
                       );
                     },
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    List<String> charArray = item.url.split('/');
+                    String id = charArray[charArray.length - 2];
+
+                    context.pushNamed(
+                      'people_detail',
+                      pathParameters: {'id': id},
+                    );
+                  },
                 ),
               );
             },

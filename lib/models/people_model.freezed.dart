@@ -24,6 +24,7 @@ mixin _$Person {
   String get height => throw _privateConstructorUsedError;
   String get mass => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
+  String get url => throw _privateConstructorUsedError;
   String? get homeworld => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,6 +42,7 @@ abstract class $PersonCopyWith<$Res> {
       String height,
       String mass,
       String gender,
+      String url,
       String? homeworld});
 }
 
@@ -61,6 +63,7 @@ class _$PersonCopyWithImpl<$Res, $Val extends Person>
     Object? height = null,
     Object? mass = null,
     Object? gender = null,
+    Object? url = null,
     Object? homeworld = freezed,
   }) {
     return _then(_value.copyWith(
@@ -79,6 +82,10 @@ class _$PersonCopyWithImpl<$Res, $Val extends Person>
       gender: null == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
+              as String,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
               as String,
       homeworld: freezed == homeworld
           ? _value.homeworld
@@ -100,6 +107,7 @@ abstract class _$$PersonImplCopyWith<$Res> implements $PersonCopyWith<$Res> {
       String height,
       String mass,
       String gender,
+      String url,
       String? homeworld});
 }
 
@@ -118,6 +126,7 @@ class __$$PersonImplCopyWithImpl<$Res>
     Object? height = null,
     Object? mass = null,
     Object? gender = null,
+    Object? url = null,
     Object? homeworld = freezed,
   }) {
     return _then(_$PersonImpl(
@@ -137,6 +146,10 @@ class __$$PersonImplCopyWithImpl<$Res>
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
               as String,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String,
       homeworld: freezed == homeworld
           ? _value.homeworld
           : homeworld // ignore: cast_nullable_to_non_nullable
@@ -153,6 +166,7 @@ class _$PersonImpl implements _Person {
       required this.height,
       required this.mass,
       required this.gender,
+      required this.url,
       this.homeworld});
 
   factory _$PersonImpl.fromJson(Map<String, dynamic> json) =>
@@ -167,11 +181,13 @@ class _$PersonImpl implements _Person {
   @override
   final String gender;
   @override
+  final String url;
+  @override
   final String? homeworld;
 
   @override
   String toString() {
-    return 'Person(name: $name, height: $height, mass: $mass, gender: $gender, homeworld: $homeworld)';
+    return 'Person(name: $name, height: $height, mass: $mass, gender: $gender, url: $url, homeworld: $homeworld)';
   }
 
   @override
@@ -183,6 +199,7 @@ class _$PersonImpl implements _Person {
             (identical(other.height, height) || other.height == height) &&
             (identical(other.mass, mass) || other.mass == mass) &&
             (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.url, url) || other.url == url) &&
             (identical(other.homeworld, homeworld) ||
                 other.homeworld == homeworld));
   }
@@ -190,7 +207,7 @@ class _$PersonImpl implements _Person {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, name, height, mass, gender, homeworld);
+      Object.hash(runtimeType, name, height, mass, gender, url, homeworld);
 
   @JsonKey(ignore: true)
   @override
@@ -212,6 +229,7 @@ abstract class _Person implements Person {
       required final String height,
       required final String mass,
       required final String gender,
+      required final String url,
       final String? homeworld}) = _$PersonImpl;
 
   factory _Person.fromJson(Map<String, dynamic> json) = _$PersonImpl.fromJson;
@@ -224,6 +242,8 @@ abstract class _Person implements Person {
   String get mass;
   @override
   String get gender;
+  @override
+  String get url;
   @override
   String? get homeworld;
   @override
