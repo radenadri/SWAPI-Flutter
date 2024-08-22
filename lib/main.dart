@@ -39,7 +39,7 @@ void main() {
           title: APP_NAME,
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-            colorSchemeSeed: Colors.green,
+            colorSchemeSeed: Colors.amber,
             useMaterial3: true,
           ),
         ),

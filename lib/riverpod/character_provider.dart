@@ -31,7 +31,7 @@ class Character extends _$Character {
       return Future.error({
         'success': false,
         'statusCode': response.statusCode,
-        'message': 'Something when wrong, please try again',
+        'message': 'Something went wrong, please try again',
       });
     }
 
