@@ -1,17 +1,21 @@
 # WIP
 
-Star wars character and movie information apps based on [SWAPI](https://swapi.dev).
+Star wars character information based on [SWAPI](https://swapi.dev).
 
 ## Todo
 
-- [ ] Splash screen
-- [ ] Onboarding screen
-- [x] Home view with bottom navigation bar
-- [ ] Second page - People screen list
-- [ ] Third page - People screen favorites
-- [ ] Fourth page - Settings page
+- [x] iOS - Splash screen
+- [x] iOS - Character screen list
+- [x] iOS - Character screen detail
+- [x] iOS - Settings page
+- [ ] Android - Splash screen
+- [ ] Android - Character screen list
+- [ ] Android - Character screen detail
+- [ ] Android - Settings page
 
 ## Notes
+
+Compiled using Flutter 3.22.1 via FVM. Also compatible with newest version of Flutter.
 
 While you developing, make sure you run :
 

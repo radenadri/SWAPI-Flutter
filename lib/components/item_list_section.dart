@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:swapi_app/components/cupertino_list_section.dart' as extended;
-import 'package:swapi_app/config/constants.dart';
+import 'package:swapi/components/cupertino_list_section.dart' as extended;
+import 'package:swapi/config/constants.dart';
 
 Widget itemListSection({
   Widget? header,

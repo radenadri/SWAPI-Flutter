@@ -2,18 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:swapi_app/config/routes.dart';
-import 'package:swapi_app/config/constants.dart';
+import 'package:swapi/config/routes.dart';
+import 'package:swapi/config/constants.dart';
 
 CupertinoThemeData starWarsTheme() {
   return const CupertinoThemeData(
-    brightness: Brightness.light,
+    applyThemeToAll: true,
+    barBackgroundColor: COLOR_BLACK,
+    brightness: Brightness.dark,
     primaryColor: COLOR_PRIMARY,
+    scaffoldBackgroundColor: COLOR_SECONDARY,
     textTheme: CupertinoTextThemeData(
+      primaryColor: COLOR_PRIMARY,
       textStyle: TextStyle(color: COLOR_PRIMARY),
     ),
-    scaffoldBackgroundColor: COLOR_SECONDARY,
-    barBackgroundColor: COLOR_BLACK,
   );
 }
 
@@ -23,8 +25,9 @@ void main() {
       ProviderScope(
         child: CupertinoApp.router(
           routerConfig: iosRouter,
-          title: 'Star Wars',
+          title: APP_NAME,
           theme: starWarsTheme(),
+          debugShowCheckedModeBanner: false,
         ),
       ),
     );
@@ -33,7 +36,8 @@ void main() {
       ProviderScope(
         child: MaterialApp.router(
           routerConfig: androidRouter,
-          title: 'Star Wars',
+          title: APP_NAME,
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
             colorSchemeSeed: Colors.green,
             useMaterial3: true,

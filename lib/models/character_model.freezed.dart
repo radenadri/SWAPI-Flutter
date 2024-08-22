@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'people_model.dart';
+part of 'character_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -23,6 +23,14 @@ mixin _$Person {
   String get name => throw _privateConstructorUsedError;
   String get height => throw _privateConstructorUsedError;
   String get mass => throw _privateConstructorUsedError;
+  @JsonKey(name: 'hair_color')
+  String get hairColor => throw _privateConstructorUsedError;
+  @JsonKey(name: 'skin_color')
+  String get skinColor => throw _privateConstructorUsedError;
+  @JsonKey(name: 'eye_color')
+  String get eyeColor => throw _privateConstructorUsedError;
+  @JsonKey(name: 'birth_year')
+  String get birthYear => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   String? get homeworld => throw _privateConstructorUsedError;
@@ -41,6 +49,10 @@ abstract class $PersonCopyWith<$Res> {
       {String name,
       String height,
       String mass,
+      @JsonKey(name: 'hair_color') String hairColor,
+      @JsonKey(name: 'skin_color') String skinColor,
+      @JsonKey(name: 'eye_color') String eyeColor,
+      @JsonKey(name: 'birth_year') String birthYear,
       String gender,
       String url,
       String? homeworld});
@@ -62,6 +74,10 @@ class _$PersonCopyWithImpl<$Res, $Val extends Person>
     Object? name = null,
     Object? height = null,
     Object? mass = null,
+    Object? hairColor = null,
+    Object? skinColor = null,
+    Object? eyeColor = null,
+    Object? birthYear = null,
     Object? gender = null,
     Object? url = null,
     Object? homeworld = freezed,
@@ -78,6 +94,22 @@ class _$PersonCopyWithImpl<$Res, $Val extends Person>
       mass: null == mass
           ? _value.mass
           : mass // ignore: cast_nullable_to_non_nullable
+              as String,
+      hairColor: null == hairColor
+          ? _value.hairColor
+          : hairColor // ignore: cast_nullable_to_non_nullable
+              as String,
+      skinColor: null == skinColor
+          ? _value.skinColor
+          : skinColor // ignore: cast_nullable_to_non_nullable
+              as String,
+      eyeColor: null == eyeColor
+          ? _value.eyeColor
+          : eyeColor // ignore: cast_nullable_to_non_nullable
+              as String,
+      birthYear: null == birthYear
+          ? _value.birthYear
+          : birthYear // ignore: cast_nullable_to_non_nullable
               as String,
       gender: null == gender
           ? _value.gender
@@ -106,6 +138,10 @@ abstract class _$$PersonImplCopyWith<$Res> implements $PersonCopyWith<$Res> {
       {String name,
       String height,
       String mass,
+      @JsonKey(name: 'hair_color') String hairColor,
+      @JsonKey(name: 'skin_color') String skinColor,
+      @JsonKey(name: 'eye_color') String eyeColor,
+      @JsonKey(name: 'birth_year') String birthYear,
       String gender,
       String url,
       String? homeworld});
@@ -125,6 +161,10 @@ class __$$PersonImplCopyWithImpl<$Res>
     Object? name = null,
     Object? height = null,
     Object? mass = null,
+    Object? hairColor = null,
+    Object? skinColor = null,
+    Object? eyeColor = null,
+    Object? birthYear = null,
     Object? gender = null,
     Object? url = null,
     Object? homeworld = freezed,
@@ -141,6 +181,22 @@ class __$$PersonImplCopyWithImpl<$Res>
       mass: null == mass
           ? _value.mass
           : mass // ignore: cast_nullable_to_non_nullable
+              as String,
+      hairColor: null == hairColor
+          ? _value.hairColor
+          : hairColor // ignore: cast_nullable_to_non_nullable
+              as String,
+      skinColor: null == skinColor
+          ? _value.skinColor
+          : skinColor // ignore: cast_nullable_to_non_nullable
+              as String,
+      eyeColor: null == eyeColor
+          ? _value.eyeColor
+          : eyeColor // ignore: cast_nullable_to_non_nullable
+              as String,
+      birthYear: null == birthYear
+          ? _value.birthYear
+          : birthYear // ignore: cast_nullable_to_non_nullable
               as String,
       gender: null == gender
           ? _value.gender
@@ -165,6 +221,10 @@ class _$PersonImpl implements _Person {
       {required this.name,
       required this.height,
       required this.mass,
+      @JsonKey(name: 'hair_color') required this.hairColor,
+      @JsonKey(name: 'skin_color') required this.skinColor,
+      @JsonKey(name: 'eye_color') required this.eyeColor,
+      @JsonKey(name: 'birth_year') required this.birthYear,
       required this.gender,
       required this.url,
       this.homeworld});
@@ -179,6 +239,18 @@ class _$PersonImpl implements _Person {
   @override
   final String mass;
   @override
+  @JsonKey(name: 'hair_color')
+  final String hairColor;
+  @override
+  @JsonKey(name: 'skin_color')
+  final String skinColor;
+  @override
+  @JsonKey(name: 'eye_color')
+  final String eyeColor;
+  @override
+  @JsonKey(name: 'birth_year')
+  final String birthYear;
+  @override
   final String gender;
   @override
   final String url;
@@ -187,7 +259,7 @@ class _$PersonImpl implements _Person {
 
   @override
   String toString() {
-    return 'Person(name: $name, height: $height, mass: $mass, gender: $gender, url: $url, homeworld: $homeworld)';
+    return 'Person(name: $name, height: $height, mass: $mass, hairColor: $hairColor, skinColor: $skinColor, eyeColor: $eyeColor, birthYear: $birthYear, gender: $gender, url: $url, homeworld: $homeworld)';
   }
 
   @override
@@ -198,6 +270,14 @@ class _$PersonImpl implements _Person {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.mass, mass) || other.mass == mass) &&
+            (identical(other.hairColor, hairColor) ||
+                other.hairColor == hairColor) &&
+            (identical(other.skinColor, skinColor) ||
+                other.skinColor == skinColor) &&
+            (identical(other.eyeColor, eyeColor) ||
+                other.eyeColor == eyeColor) &&
+            (identical(other.birthYear, birthYear) ||
+                other.birthYear == birthYear) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.homeworld, homeworld) ||
@@ -206,8 +286,8 @@ class _$PersonImpl implements _Person {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, height, mass, gender, url, homeworld);
+  int get hashCode => Object.hash(runtimeType, name, height, mass, hairColor,
+      skinColor, eyeColor, birthYear, gender, url, homeworld);
 
   @JsonKey(ignore: true)
   @override
@@ -228,6 +308,10 @@ abstract class _Person implements Person {
       {required final String name,
       required final String height,
       required final String mass,
+      @JsonKey(name: 'hair_color') required final String hairColor,
+      @JsonKey(name: 'skin_color') required final String skinColor,
+      @JsonKey(name: 'eye_color') required final String eyeColor,
+      @JsonKey(name: 'birth_year') required final String birthYear,
       required final String gender,
       required final String url,
       final String? homeworld}) = _$PersonImpl;
@@ -241,6 +325,18 @@ abstract class _Person implements Person {
   @override
   String get mass;
   @override
+  @JsonKey(name: 'hair_color')
+  String get hairColor;
+  @override
+  @JsonKey(name: 'skin_color')
+  String get skinColor;
+  @override
+  @JsonKey(name: 'eye_color')
+  String get eyeColor;
+  @override
+  @JsonKey(name: 'birth_year')
+  String get birthYear;
+  @override
   String get gender;
   @override
   String get url;
@@ -252,12 +348,12 @@ abstract class _Person implements Person {
       throw _privateConstructorUsedError;
 }
 
-PeopleModel _$PeopleModelFromJson(Map<String, dynamic> json) {
-  return _PeopleModel.fromJson(json);
+CharacterModel _$CharacterModelFromJson(Map<String, dynamic> json) {
+  return _CharacterModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PeopleModel {
+mixin _$CharacterModel {
   int get count => throw _privateConstructorUsedError;
   String? get next => throw _privateConstructorUsedError;
   String? get previous => throw _privateConstructorUsedError;
@@ -265,23 +361,23 @@ mixin _$PeopleModel {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PeopleModelCopyWith<PeopleModel> get copyWith =>
+  $CharacterModelCopyWith<CharacterModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PeopleModelCopyWith<$Res> {
-  factory $PeopleModelCopyWith(
-          PeopleModel value, $Res Function(PeopleModel) then) =
-      _$PeopleModelCopyWithImpl<$Res, PeopleModel>;
+abstract class $CharacterModelCopyWith<$Res> {
+  factory $CharacterModelCopyWith(
+          CharacterModel value, $Res Function(CharacterModel) then) =
+      _$CharacterModelCopyWithImpl<$Res, CharacterModel>;
   @useResult
   $Res call({int count, String? next, String? previous, List<Person> results});
 }
 
 /// @nodoc
-class _$PeopleModelCopyWithImpl<$Res, $Val extends PeopleModel>
-    implements $PeopleModelCopyWith<$Res> {
-  _$PeopleModelCopyWithImpl(this._value, this._then);
+class _$CharacterModelCopyWithImpl<$Res, $Val extends CharacterModel>
+    implements $CharacterModelCopyWith<$Res> {
+  _$CharacterModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -318,22 +414,22 @@ class _$PeopleModelCopyWithImpl<$Res, $Val extends PeopleModel>
 }
 
 /// @nodoc
-abstract class _$$PeopleModelImplCopyWith<$Res>
-    implements $PeopleModelCopyWith<$Res> {
-  factory _$$PeopleModelImplCopyWith(
-          _$PeopleModelImpl value, $Res Function(_$PeopleModelImpl) then) =
-      __$$PeopleModelImplCopyWithImpl<$Res>;
+abstract class _$$CharacterModelImplCopyWith<$Res>
+    implements $CharacterModelCopyWith<$Res> {
+  factory _$$CharacterModelImplCopyWith(_$CharacterModelImpl value,
+          $Res Function(_$CharacterModelImpl) then) =
+      __$$CharacterModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int count, String? next, String? previous, List<Person> results});
 }
 
 /// @nodoc
-class __$$PeopleModelImplCopyWithImpl<$Res>
-    extends _$PeopleModelCopyWithImpl<$Res, _$PeopleModelImpl>
-    implements _$$PeopleModelImplCopyWith<$Res> {
-  __$$PeopleModelImplCopyWithImpl(
-      _$PeopleModelImpl _value, $Res Function(_$PeopleModelImpl) _then)
+class __$$CharacterModelImplCopyWithImpl<$Res>
+    extends _$CharacterModelCopyWithImpl<$Res, _$CharacterModelImpl>
+    implements _$$CharacterModelImplCopyWith<$Res> {
+  __$$CharacterModelImplCopyWithImpl(
+      _$CharacterModelImpl _value, $Res Function(_$CharacterModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -344,7 +440,7 @@ class __$$PeopleModelImplCopyWithImpl<$Res>
     Object? previous = freezed,
     Object? results = null,
   }) {
-    return _then(_$PeopleModelImpl(
+    return _then(_$CharacterModelImpl(
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -367,16 +463,16 @@ class __$$PeopleModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PeopleModelImpl implements _PeopleModel {
-  const _$PeopleModelImpl(
+class _$CharacterModelImpl implements _CharacterModel {
+  const _$CharacterModelImpl(
       {required this.count,
       this.next,
       this.previous,
       required final List<Person> results})
       : _results = results;
 
-  factory _$PeopleModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PeopleModelImplFromJson(json);
+  factory _$CharacterModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CharacterModelImplFromJson(json);
 
   @override
   final int count;
@@ -394,14 +490,14 @@ class _$PeopleModelImpl implements _PeopleModel {
 
   @override
   String toString() {
-    return 'PeopleModel(count: $count, next: $next, previous: $previous, results: $results)';
+    return 'CharacterModel(count: $count, next: $next, previous: $previous, results: $results)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PeopleModelImpl &&
+            other is _$CharacterModelImpl &&
             (identical(other.count, count) || other.count == count) &&
             (identical(other.next, next) || other.next == next) &&
             (identical(other.previous, previous) ||
@@ -417,26 +513,27 @@ class _$PeopleModelImpl implements _PeopleModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PeopleModelImplCopyWith<_$PeopleModelImpl> get copyWith =>
-      __$$PeopleModelImplCopyWithImpl<_$PeopleModelImpl>(this, _$identity);
+  _$$CharacterModelImplCopyWith<_$CharacterModelImpl> get copyWith =>
+      __$$CharacterModelImplCopyWithImpl<_$CharacterModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PeopleModelImplToJson(
+    return _$$CharacterModelImplToJson(
       this,
     );
   }
 }
 
-abstract class _PeopleModel implements PeopleModel {
-  const factory _PeopleModel(
+abstract class _CharacterModel implements CharacterModel {
+  const factory _CharacterModel(
       {required final int count,
       final String? next,
       final String? previous,
-      required final List<Person> results}) = _$PeopleModelImpl;
+      required final List<Person> results}) = _$CharacterModelImpl;
 
-  factory _PeopleModel.fromJson(Map<String, dynamic> json) =
-      _$PeopleModelImpl.fromJson;
+  factory _CharacterModel.fromJson(Map<String, dynamic> json) =
+      _$CharacterModelImpl.fromJson;
 
   @override
   int get count;
@@ -448,6 +545,6 @@ abstract class _PeopleModel implements PeopleModel {
   List<Person> get results;
   @override
   @JsonKey(ignore: true)
-  _$$PeopleModelImplCopyWith<_$PeopleModelImpl> get copyWith =>
+  _$$CharacterModelImplCopyWith<_$CharacterModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

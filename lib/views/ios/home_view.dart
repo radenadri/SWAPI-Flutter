@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:swapi_app/views/ios/people_view.dart';
-import 'package:swapi_app/views/ios/setting_view.dart';
+import 'package:swapi/views/ios/character_view.dart';
+import 'package:swapi/views/ios/setting_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -17,7 +17,7 @@ class _HomeViewState extends State<HomeView> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.person_3),
-            label: 'People',
+            label: 'Characters',
           ),
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.gear),
@@ -30,7 +30,7 @@ class _HomeViewState extends State<HomeView> {
           builder: (context) {
             switch (index) {
               case 0:
-                return const PeopleView();
+                return const CharacterView();
               default:
                 return const SettingView();
             }
