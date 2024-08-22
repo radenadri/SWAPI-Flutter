@@ -1,35 +1,47 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:swapi/config/constants.dart';
+import 'package:swapi/views/android/character_view.dart';
+import 'package:swapi/views/android/setting_view.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  final pages = const [
+    CharacterView(),
+    SettingView(),
+  ];
+  int currentPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Riverpod Demo'),
+      bottomNavigationBar: NavigationBar(
+        surfaceTintColor: COLOR_BLACK,
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPageIndex = index;
+          });
+        },
+        selectedIndex: currentPageIndex,
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.person_3_outlined, color: COLOR_PRIMARY),
+            label: 'Characters',
+            selectedIcon: Icon(Icons.person_3, color: COLOR_PRIMARY),
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.settings_outlined, color: COLOR_PRIMARY),
+            label: 'Settings',
+            selectedIcon: Icon(Icons.settings, color: COLOR_PRIMARY),
+          ),
+        ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                GoRouter.of(context).pushNamed('counter');
-              },
-              child: const Text('Counter'),
-            ),
-            const SizedBox(height: 20.0),
-            ElevatedButton(
-              onPressed: () {
-                GoRouter.of(context).pushNamed('number_trivia');
-              },
-              child: const Text('Number Trivia'),
-            ),
-          ],
-        ),
-      ),
+      body: pages[currentPageIndex],
     );
   }
 }

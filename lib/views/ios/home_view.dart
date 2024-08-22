@@ -29,10 +29,10 @@ class _HomeViewState extends State<HomeView> {
         return CupertinoTabView(
           builder: (context) {
             switch (index) {
-              case 0:
-                return const CharacterView();
-              default:
+              case 1:
                 return const SettingView();
+              default:
+                return const CharacterView();
             }
           },
         );

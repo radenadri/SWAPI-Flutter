@@ -54,11 +54,11 @@ class _CharacterViewState extends ConsumerState<CharacterView> {
 
   @override
   Widget build(BuildContext context) {
-    final people = ref.watch(characterProvider);
+    final character = ref.watch(characterProvider);
 
     return CupertinoPageScaffold(
-      child: people.when(
-        data: (people) => characterLists(people, ref, _controller),
+      child: character.when(
+        data: (character) => characterLists(character, ref, _controller),
         error: (error, stackTrace) => errorWidget(error),
         loading: () => loadingWidget(),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:swapi/config/constants.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 class Avatar extends StatelessWidget {
   const Avatar({
@@ -27,12 +28,16 @@ class Avatar extends StatelessWidget {
           ) {
             return frame != null
                 ? child
-                : const CupertinoActivityIndicator(color: COLOR_PRIMARY);
+                : (defaultTargetPlatform == TargetPlatform.iOS)
+                    ? const CupertinoActivityIndicator()
+                    : const CircularProgressIndicator();
           },
           errorBuilder: errorBuilder ??
               (context, error, stackTrace) {
-                return const Icon(
-                  CupertinoIcons.person_alt_circle,
+                return Icon(
+                  (defaultTargetPlatform == TargetPlatform.iOS)
+                      ? CupertinoIcons.person_alt_circle
+                      : Icons.person,
                   size: 30.0,
                 );
               },

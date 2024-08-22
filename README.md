@@ -8,10 +8,10 @@ Star wars character information based on [SWAPI](https://swapi.dev).
 - [x] iOS - Character screen list
 - [x] iOS - Character screen detail
 - [x] iOS - Settings page
-- [ ] Android - Splash screen
-- [ ] Android - Character screen list
-- [ ] Android - Character screen detail
-- [ ] Android - Settings page
+- [x] Android - Splash screen
+- [x] Android - Character screen list
+- [x] Android - Character screen detail
+- [x] Android - Settings page
 
 ## Notes
 
