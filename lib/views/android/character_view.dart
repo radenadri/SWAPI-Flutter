@@ -78,23 +78,20 @@ class _CharacterViewState extends ConsumerState<CharacterView> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: MediaQuery.of(context).size.height * 0.15,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                padding: EdgeInsets.symmetric(
-                  vertical: MediaQuery.of(context).size.height * 0.05,
-                  horizontal: MediaQuery.of(context).size.width * 0.05,
-                ),
-                child: Text(
-                  'Characters (${character.count})',
-                  style: Theme.of(context).textTheme.displayMedium,
-                ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: EdgeInsets.symmetric(
+                vertical: MediaQuery.of(context).size.height * 0.05,
+                horizontal: MediaQuery.of(context).size.width * 0.05,
               ),
-            ],
-          ),
+              child: Text(
+                'Characters (${character.count})',
+                style: Theme.of(context).textTheme.displayMedium,
+              ),
+            ),
+          ],
         ),
         Expanded(
           child: Container(
