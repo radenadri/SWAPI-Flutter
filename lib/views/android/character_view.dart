@@ -55,17 +55,15 @@ class _CharacterViewState extends ConsumerState<CharacterView> {
   Widget build(BuildContext context) {
     final character = ref.watch(characterProvider);
 
-    return Scaffold(
-      body: SafeArea(
-        child: character.when(
-          data: (character) => characterLists(
-            character,
-            ref,
-            _controller,
-          ),
-          error: (error, stackTrace) => errorWidget(error),
-          loading: () => loadingWidget(),
+    return SafeArea(
+      child: character.when(
+        data: (character) => characterLists(
+          character,
+          ref,
+          _controller,
         ),
+        error: (error, stackTrace) => errorWidget(error),
+        loading: () => loadingWidget(),
       ),
     );
   }
@@ -101,6 +99,7 @@ class _CharacterViewState extends ConsumerState<CharacterView> {
             child: RefreshIndicator(
               onRefresh: () async {
                 await Future.delayed(const Duration(seconds: 2));
+                ref.invalidate(characterProvider);
               },
               child: ListView.builder(
                 controller: controller,
@@ -170,16 +169,21 @@ class _CharacterViewState extends ConsumerState<CharacterView> {
     Map<String, dynamic> errorMap = error as Map<String, dynamic>;
 
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            errorMap['statusCode'].toString(),
-            style: const TextStyle(fontSize: 50),
-          ),
-          const SizedBox(height: 20.0),
-          Text(errorMap['message']),
-        ],
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width * 0.05,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              errorMap['statusCode'].toString(),
+              style: const TextStyle(fontSize: 50),
+            ),
+            const SizedBox(height: 20.0),
+            Text(errorMap['message']),
+          ],
+        ),
       ),
     );
   }

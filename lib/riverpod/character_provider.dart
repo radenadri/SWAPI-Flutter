@@ -19,35 +19,49 @@ class Character extends _$Character {
   Future<CharacterModel> getCharacters({String? nextUrl}) async {
     final dio = ref.watch(dioProvider);
 
-    final response = await dio.get(
-      nextUrl ?? '$SWAPI_URL/people',
-      options: Options(
-        validateStatus: (status) => true,
-        headers: {'Content-Type': 'application/json'},
-      ),
-    );
+    try {
+      final response = await dio.get(
+        nextUrl ?? '$SWAPI_URL/people',
+        options: Options(
+          validateStatus: (status) => status! < 500,
+          headers: {'Content-Type': 'application/json'},
+        ),
+      );
 
-    if (response.statusCode != 200) {
+      if (response.statusCode != 200) {
+        return Future.error({
+          'success': false,
+          'statusCode': response.statusCode,
+          'message': 'Something went wrong, please try again',
+        });
+      }
+
+      final characterModel = CharacterModel.fromJson(response.data);
+      List<Person> oldPerson = state.value?.results ?? [];
+      List<Person> newPerson = characterModel.results;
+
+      state = AsyncData(
+        CharacterModel(
+          count: characterModel.count,
+          next: characterModel.next,
+          previous: characterModel.previous,
+          results: [...oldPerson, ...newPerson],
+        ),
+      ) as AsyncValue<CharacterModel>;
+
+      return characterModel;
+    } on DioException catch (e) {
       return Future.error({
         'success': false,
-        'statusCode': response.statusCode,
-        'message': 'Something went wrong, please try again',
+        'statusCode': e.response?.statusCode,
+        'message': e.message,
+      });
+    } on Exception catch (e) {
+      return Future.error({
+        'success': false,
+        'statusCode': 500,
+        'message': e.toString(),
       });
     }
-
-    final characterModel = CharacterModel.fromJson(response.data);
-    List<Person> oldPerson = state.value?.results ?? [];
-    List<Person> newPerson = characterModel.results;
-
-    state = AsyncData(
-      CharacterModel(
-        count: characterModel.count,
-        next: characterModel.next,
-        previous: characterModel.previous,
-        results: [...oldPerson, ...newPerson],
-      ),
-    ) as AsyncValue<CharacterModel>;
-
-    return characterModel;
   }
 }

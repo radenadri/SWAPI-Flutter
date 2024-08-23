@@ -6,7 +6,7 @@ part of 'character_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$characterHash() => r'bcf518f5594e7f3cac762454dd1e6352b60e640e';
+String _$characterHash() => r'7018791e250fbb67221c9159e73270fd79fdd209';
 
 /// See also [Character].
 @ProviderFor(Character)
