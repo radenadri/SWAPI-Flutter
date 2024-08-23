@@ -1,6 +1,6 @@
 # SWAPI
 
-Star wars character information based on [SWAPI](https://swapi.dev).
+Star wars character information based on [SWAPI](https://swapi.dev). Build with Flutter & Riverpod for the state management.
 
 ## Demo Application
 
