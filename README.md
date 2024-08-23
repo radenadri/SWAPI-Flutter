@@ -1,6 +1,12 @@
-# WIP
+# SWAPI
 
 Star wars character information based on [SWAPI](https://swapi.dev).
+
+## Demo Application
+
+| Android                                           | iOS                                    |
+|---------------------------------------------------|----------------------------------------|
+| <video width="320" height="240" controls><source src="media/Android.mp4"type="video/mp4"></video>|<video width="320" height="240" controls><source src="media/iOS.mp4"type="video/mp4"></video> |
 
 ## Todo
 
