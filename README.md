@@ -4,9 +4,8 @@ Star wars character information based on [SWAPI](https://swapi.dev).
 
 ## Demo Application
 
-| Android                                           | iOS                                    |
-|---------------------------------------------------|----------------------------------------|
-| <video width="320" height="240" controls><source src="media/Android.mp4"type="video/mp4"></video>|<video width="320" height="240" controls><source src="media/iOS.mp4"type="video/mp4"></video> |
+<video src="https://github.com/user-attachments/assets/cae162f9-4476-4891-b425-772abb77c189"></video>
+<video src="https://github.com/user-attachments/assets/7068e7ec-1257-4fd8-b959-645465a1d526"></video>
 
 ## Todo
 
@@ -21,7 +20,7 @@ Star wars character information based on [SWAPI](https://swapi.dev).
 
 ## Notes
 
-Compiled using Flutter 3.22.1 via FVM. Also compatible with newest version of Flutter.
+Compiled using Flutter 3.24.1 via FVM.
 
 While you developing, make sure you run :
 
